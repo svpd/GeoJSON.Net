@@ -1,4 +1,4 @@
-﻿// Copyright © Joerg Battermann 2014, Matt Hunt 2017
+﻿// Copyright © Matt Hunt 2017
 
 using System.Runtime.Serialization;
 

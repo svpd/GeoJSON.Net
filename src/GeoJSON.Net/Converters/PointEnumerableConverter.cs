@@ -1,8 +1,9 @@
-// Copyright � Joerg Battermann 2014, Matt Hunt 2017
+// Copyright � Matt Hunt 2017
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using GeoJSON.Net.Extensions;
 using GeoJSON.Net.Geometry;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -29,7 +30,7 @@ namespace GeoJSON.Net.Converters
             }
             else
             {
-                throw new ArgumentException($"{nameof(PointEnumerableConverter)}: unsupported value {value}");
+                throw new ArgumentException($"{nameof(PointEnumerableConverter)}: unsupported value {value}.");
             }
         }
 

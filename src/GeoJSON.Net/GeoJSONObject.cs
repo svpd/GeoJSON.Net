@@ -1,7 +1,6 @@
-﻿// Copyright © Joerg Battermann 2014, Matt Hunt 2017
+﻿// Copyright © Matt Hunt 2017
 
 using System.Linq;
-using System.Runtime.Serialization;
 using GeoJSON.Net.Converters;
 using GeoJSON.Net.CoordinateReferenceSystem;
 using Newtonsoft.Json;
@@ -47,7 +46,6 @@ namespace GeoJSON.Net
         [JsonProperty(PropertyName = "crs", Required = Required.Default, DefaultValueHandling = DefaultValueHandling.IgnoreAndPopulate,
             NullValueHandling = NullValueHandling.Include)]
         [JsonConverter(typeof(CrsConverter))]
-        //[DefaultValue(typeof(DefaultCRS), "")]
         public ICRSObject CRS { get; set; }
 
         /// <summary>

@@ -1,4 +1,4 @@
-﻿// Copyright © Joerg Battermann 2014, Matt Hunt 2017
+﻿// Copyright © Matt Hunt 2017
 
 namespace GeoJSON.Net.CoordinateReferenceSystem
 {
@@ -12,12 +12,12 @@ namespace GeoJSON.Net.CoordinateReferenceSystem
     /// see http://geojson.org/geojson-spec.html#coordinate-reference-system-objects.
     /// The current RFC removes the CRS type, but allows to be left in for backwards compatibility. See https://tools.ietf.org/html/rfc7946#section-4
     /// </remarks>
-    public class DefaultCRS : NamedCRS
+    public class Wgs84CRS : NamedCRS
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DefaultCRS" /> class.
+        /// Initializes a new instance of the <see cref="Wgs84CRS" /> class.
         /// </summary>
-        private DefaultCRS()
+        private Wgs84CRS()
             : base("urn:ogc:def:crs:OGC::CRS84")
         {
         }
@@ -28,6 +28,6 @@ namespace GeoJSON.Net.CoordinateReferenceSystem
         /// <value>
         /// The instance.
         /// </value>
-        public static DefaultCRS Instance { get; } = new DefaultCRS();
+        public static Wgs84CRS Instance { get; } = new Wgs84CRS();
     }
 }

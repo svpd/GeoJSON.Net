@@ -1,4 +1,4 @@
-﻿// Copyright © Joerg Battermann 2014, Matt Hunt 2017
+﻿// Copyright © Matt Hunt 2017
 
 namespace GeoJSON.Net.CoordinateReferenceSystem
 {

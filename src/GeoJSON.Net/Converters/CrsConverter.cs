@@ -1,4 +1,4 @@
-﻿// Copyright © Joerg Battermann 2014, Matt Hunt 2017
+﻿// Copyright © Matt Hunt 2017
 
 using System;
 using GeoJSON.Net.CoordinateReferenceSystem;
@@ -47,15 +47,14 @@ namespace GeoJSON.Net.Converters
             }
             if (reader.TokenType != JsonToken.StartObject)
             {
-                throw new JsonReaderException("CRS must be null or a json object");
+                throw new JsonReaderException("CRS must be null or a json object.");
             }
 
             var jObject = JObject.Load(reader);
 
-            JToken token;
-            if (!jObject.TryGetValue("type", StringComparison.OrdinalIgnoreCase, out token))
+            if (!jObject.TryGetValue("type", StringComparison.OrdinalIgnoreCase, out var token))
             {
-                throw new JsonReaderException("CRS must have a \"type\" property");
+                throw new JsonReaderException("CRS must have a \"type\" property.");
             }
 
             var crsType = token.Value<string>();
@@ -91,7 +90,7 @@ namespace GeoJSON.Net.Converters
                 }
             }
 
-            return new NotSupportedException(string.Format("Type {0} unexpected.", crsType));
+            return new NotSupportedException($"Type {crsType} unexpected.");
         }
 
         /// <summary>
@@ -117,7 +116,7 @@ namespace GeoJSON.Net.Converters
                     writer.WriteNull();
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException(nameof(crsObject.Type));
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿// Copyright © Joerg Battermann 2014, Matt Hunt 2017
+﻿// Copyright © Matt Hunt 2017
 
 using System;
 using System.Collections.Generic;
@@ -67,7 +67,7 @@ namespace GeoJSON.Net.Converters
             }
             else
             {
-                throw new ArgumentException($"{nameof(PositionEnumerableConverter)}: unsupported value type");
+                throw new ArgumentException($"{nameof(PositionEnumerableConverter)}: unsupported value type.");
             }
         }
     }

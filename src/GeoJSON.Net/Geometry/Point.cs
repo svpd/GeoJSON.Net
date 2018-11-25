@@ -1,4 +1,4 @@
-﻿// Copyright © Joerg Battermann 2014, Matt Hunt 2017
+﻿// Copyright © Matt Hunt 2018
 
 using System;
 using GeoJSON.Net.Converters;
@@ -14,14 +14,14 @@ namespace GeoJSON.Net.Geometry
     /// <remarks>
     /// See https://tools.ietf.org/html/rfc7946#section-3.1.2
     /// </remarks>
-    public class Point : GeoJSONObject, IGeometryObject, IEqualityComparer<Point>, IEquatable<Point>
+    public class Point : GeoJSONObject, IEqualityComparer<Point>, IEquatable<Point>
     {
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Point" /> class.
         /// </summary>
         /// <param name="coordinates">The Position.</param>
-        public Point(IPosition coordinates)
+        public Point(Position coordinates)
         {
             Coordinates = coordinates ?? throw new ArgumentNullException(nameof(coordinates));
         }
@@ -33,7 +33,7 @@ namespace GeoJSON.Net.Geometry
         /// </summary>
         [JsonProperty("coordinates", Required = Required.Always)]
         [JsonConverter(typeof(PositionConverter))]
-        public IPosition Coordinates { get; }
+        public Position Coordinates { get; }
 
         #region IEqualityComparer, IEquatable
 
@@ -45,19 +45,18 @@ namespace GeoJSON.Net.Geometry
             return Equals(this, obj as Point);
         }
 
-        /// <summary>
-        /// Determines whether the specified object is equal to the current object
-        /// </summary>
+        /// <inheritdoc />
         public bool Equals(Point other)
         {
             return Equals(this, other);
         }
 
-        /// <summary>
-        /// Determines whether the specified object instances are considered equal
-        /// </summary>
+        /// <inheritdoc />
         public bool Equals(Point left, Point right)
         {
+            if (left == null || right == null)
+                return false;
+
             if (base.Equals(left, right))
             {
                 return left.Coordinates.Equals(right.Coordinates);
@@ -89,9 +88,7 @@ namespace GeoJSON.Net.Geometry
             return !(left == right);
         }
         
-        /// <summary>
-        /// Returns the hash code for this instance
-        /// </summary>
+        /// <inheritdoc />
         public override int GetHashCode()
         {
             int hash = base.GetHashCode();
@@ -99,9 +96,7 @@ namespace GeoJSON.Net.Geometry
             return hash;
         }
 
-        /// <summary>
-        /// Returns the hash code for the specified object
-        /// </summary>
+        /// <inheritdoc />
         public int GetHashCode(Point other)
         {
             return other.GetHashCode();

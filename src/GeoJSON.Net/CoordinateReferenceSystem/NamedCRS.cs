@@ -31,7 +31,7 @@ namespace GeoJSON.Net.CoordinateReferenceSystem
 
             if (name.Length == 0)
             {
-                throw new ArgumentException("must be specified", nameof(name));
+                throw new ArgumentException("Must be specified.", nameof(name));
             }
 
             Properties = new Dictionary<string, object> { { "name", name } };

@@ -1,4 +1,4 @@
-﻿// Copyright © Joerg Battermann 2014, Matt Hunt 2017
+﻿// Copyright © Matt Hunt 2018
 
 using System;
 using System.Collections.Generic;
@@ -22,17 +22,6 @@ namespace GeoJSON.Net.Geometry
         /// <param name="altitude">The altitude in m(eter).</param>
         public Position(double latitude, double longitude, double? altitude = null)
         {
-            // Yes I hate commented out code to, but this needs to go right now
-            //if (Math.Abs(latitude) > 90)
-            //{
-            //    throw new ArgumentOutOfRangeException(nameof(latitude), "Latitude must be a proper lat (+/- double) value between -90 and 90.");
-            //}
-
-            //if (Math.Abs(longitude) > 180)
-            //{
-            //    throw new ArgumentOutOfRangeException(nameof(longitude), "Longitude must be a proper lon (+/- double) value between -180 and 180.");
-            //}
-
             Latitude = latitude;
             Longitude = longitude;
             Altitude = altitude;
@@ -56,15 +45,8 @@ namespace GeoJSON.Net.Geometry
                 throw new ArgumentOutOfRangeException(nameof(longitude), "May not be empty.");
             }
 
-            if (!double.TryParse(latitude, NumberStyles.Float, CultureInfo.InvariantCulture, out double lat) || Math.Abs(lat) > 90)
-            {
-                throw new ArgumentOutOfRangeException(nameof(latitude), "Latitude must be a proper lat (+/- double) value between -90 and 90.");
-            }
-
-            if (!double.TryParse(longitude, NumberStyles.Float, CultureInfo.InvariantCulture, out double lon) || Math.Abs(lon) > 180)
-            {
-                throw new ArgumentOutOfRangeException(nameof(longitude), "Longitude must be a proper lon (+/- double) value between -180 and 180.");
-            }
+            double.TryParse(latitude, NumberStyles.Float, CultureInfo.InvariantCulture, out double lat);
+            double.TryParse(longitude, NumberStyles.Float, CultureInfo.InvariantCulture, out double lon);
 
             Latitude = lat;
             Longitude = lon;
@@ -73,13 +55,13 @@ namespace GeoJSON.Net.Geometry
             {
                 if (!double.TryParse(altitude, NumberStyles.Float, CultureInfo.InvariantCulture, out double alt))
                 {
-                    throw new ArgumentOutOfRangeException(nameof(altitude), "Altitude must be a proper altitude (m(eter) as double) value, e.g. '6500'.");
+                    throw new ArgumentOutOfRangeException(nameof(altitude), "Altitude must be a proper altitude.");
                 }
 
                 Altitude = alt;
             }
         }
-        
+
         /// <summary>
         /// Gets the altitude.
         /// </summary>
@@ -94,7 +76,7 @@ namespace GeoJSON.Net.Geometry
         /// Gets the longitude.
         /// </summary>
         public double Longitude { get; }
-        
+
         /// <summary>
         /// Returns a <see cref="string" /> that represents this instance.
         /// </summary>
@@ -115,20 +97,16 @@ namespace GeoJSON.Net.Geometry
         /// </summary>
         public override bool Equals(object obj)
         {
-            return (this == (obj as Position));
+            return (this == obj as Position);
         }
 
-        /// <summary>
-        /// Determines whether the specified object is equal to the current object
-        /// </summary>
+        /// <inheritdoc />
         public bool Equals(Position other)
         {
             return (this == other);
         }
 
-        /// <summary>
-        /// Determines whether the specified object instances are considered equal
-        /// </summary>
+        /// <inheritdoc />
         public bool Equals(Position left, Position right)
         {
             return (left == right);
@@ -176,9 +154,7 @@ namespace GeoJSON.Net.Geometry
             return hash;
         }
 
-        /// <summary>
-        /// Returns the hash code for the specified object
-        /// </summary>
+        /// <inheritdoc />
         public int GetHashCode(Position other)
         {
             return other.GetHashCode();

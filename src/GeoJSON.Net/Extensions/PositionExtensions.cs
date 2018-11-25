@@ -1,8 +1,8 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using GeoJSON.Net.Geometry;
 
-namespace GeoJSON.Net
+namespace GeoJSON.Net.Extensions
 {
     internal static class PositionExtensions
     {
@@ -13,12 +13,12 @@ namespace GeoJSON.Net
                 double lat, lng, alt;
                 if (!enumerator.MoveNext())
                 {
-                    throw new ArgumentException("Expected 2 or 3 coordinates but got 0");
+                    throw new ArgumentException("Expected 2 or 3 coordinates but got 0.");
                 }
                 lng = enumerator.Current;
                 if (!enumerator.MoveNext())
                 {
-                    throw new ArgumentException("Expected 2 or 3 coordinates but got 1");
+                    throw new ArgumentException("Expected 2 or 3 coordinates but got 1.");
                 }
                 lat = enumerator.Current;
                 if (!enumerator.MoveNext())
@@ -28,7 +28,7 @@ namespace GeoJSON.Net
                 alt = enumerator.Current;
                 if (enumerator.MoveNext())
                 {
-                    throw new ArgumentException("Expected 2 or 3 coordinates but got >= 4");
+                    throw new ArgumentException("Expected 2 or 3 coordinates but got >= 4.");
                 }
                 return new Position(lat, lng, alt);
             }

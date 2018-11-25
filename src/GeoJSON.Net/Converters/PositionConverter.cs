@@ -1,6 +1,7 @@
 ﻿// Copyright © Joerg Battermann 2014, Matt Hunt 2017
 
 using System;
+using GeoJSON.Net.Extensions;
 using GeoJSON.Net.Geometry;
 using Newtonsoft.Json;
 
@@ -44,9 +45,9 @@ namespace GeoJSON.Net.Converters
             }
             catch (Exception e)
             {
-                throw new JsonReaderException("error parsing coordinates", e);
+                throw new JsonReaderException("Error parsing coordinates.", e);
             }
-            return coordinates?.ToPosition() ?? throw new JsonReaderException("coordinates cannot be null");
+            return coordinates?.ToPosition() ?? throw new JsonReaderException("Coordinates cannot be null.");
         }
 
         /// <summary>

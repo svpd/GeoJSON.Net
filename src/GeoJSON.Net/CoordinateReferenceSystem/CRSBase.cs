@@ -1,4 +1,4 @@
-﻿// Copyright © Joerg Battermann 2014, Matt Hunt 2017
+﻿// Copyright © Matt Hunt 2017
 
 using System;
 using System.Collections.Generic;
@@ -58,7 +58,7 @@ namespace GeoJSON.Net.CoordinateReferenceSystem
                 return false;
             }
 
-            if (left.Type != right.Type)
+            if (left != null && left.Type != right.Type)
             {
                 return false;
             }
@@ -78,7 +78,7 @@ namespace GeoJSON.Net.CoordinateReferenceSystem
                 {
                     return false;
                 }
-                if (!object.Equals(item.Value, right.Properties[item.Key]))
+                if (!Equals(item.Value, right.Properties[item.Key]))
                 {
                     return false;
                 }
