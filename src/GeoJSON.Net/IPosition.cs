@@ -1,5 +1,5 @@
 ﻿// Copyright © Joerg Battermann 2014, Matt Hunt 2017
-namespace GeoJSON.Net.Geometry
+namespace GeoJSON.Net
 {
     /// <summary>
     /// Defines the Geographic Position type.

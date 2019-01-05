@@ -1,4 +1,3 @@
-using GeoJSON.Net.Geometry;
 using Newtonsoft.Json;
 using NUnit.Framework;
 

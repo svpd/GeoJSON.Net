@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using GeoJSON.Net.Geometry;
 
 namespace GeoJSON.Net.Extensions
 {

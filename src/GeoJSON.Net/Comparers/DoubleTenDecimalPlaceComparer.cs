@@ -3,7 +3,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace GeoJSON.Net
+namespace GeoJSON.Net.Comparers
 {
     /// <summary>
     ///     Compares doubles for equality.

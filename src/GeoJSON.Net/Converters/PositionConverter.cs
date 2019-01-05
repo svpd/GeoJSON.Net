@@ -2,7 +2,6 @@
 
 using System;
 using GeoJSON.Net.Extensions;
-using GeoJSON.Net.Geometry;
 using Newtonsoft.Json;
 
 namespace GeoJSON.Net.Converters

@@ -3,8 +3,9 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using GeoJSON.Net.Comparers;
 
-namespace GeoJSON.Net.Geometry
+namespace GeoJSON.Net
 {
     /// <summary>
     /// A position is the fundamental geometry construct, consisting of <see cref="Latitude" />,
@@ -131,6 +132,7 @@ namespace GeoJSON.Net.Geometry
             {
                 return false;
             }
+
             return left.Altitude.HasValue == right.Altitude.HasValue &&
                    (!left.Altitude.HasValue || DoubleComparer.Equals(left.Altitude.Value, right.Altitude.Value));
         }
