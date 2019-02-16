@@ -1,4 +1,4 @@
-﻿// Copyright © Matt Hunt 2017
+﻿// Copyright © Matt Hunt 2019
 
 using System;
 using System.Collections.Generic;
