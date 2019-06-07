@@ -9,6 +9,9 @@
     <Authors></Authors>
     <Company>GeoJSON.Net</Company>
     <Copyright>Copyright © Matt Hunt, Joerg Battermann and Contributor, 2014 - 2017</Copyright>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>geojson.snk</AssemblyOriginatorKeyFile>
+    <DelaySign>false</DelaySign>
   </PropertyGroup>
 
   <ItemGroup>
